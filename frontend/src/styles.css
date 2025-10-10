@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  font-family: 'Poppins', sans-serif;
+  --primary-color: #007BFF; /* Azul para elementos interactivos */
+  --secondary-color: #343A40; /* Gris oscuro para texto principal y fondos sutiles */
+  --accent-color: #17A2B8; /* Cian para resaltados y elementos de interacción */
+  --background-color: #101922; /* Gris oscuro para fondos sutiles */
+  --text-primary-color: #ffffff; /* Gris oscuro para texto principal */
+  --text-secondary-color: #c1c6cd; /* Gris más claro para texto secundario */
+  --text-tertiary-color: #969da9; /* Gris más claro para texto secundario */
+  --background-secondary-color: #1E2A3B; /* Gris oscuro para fondos sutiles */
+  --card-background-color: #101d2b; /* Gris oscuro para fondos sutiles */
+  --card-border-color: #E9ECEF; /* Gris claro para bordes sutiles */
+  --color-gray-200: #E9ECEF; /* Gris claro para bordes sutiles */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
