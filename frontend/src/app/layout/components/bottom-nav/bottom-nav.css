@@ -1,0 +1,31 @@
+.bottom-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--background-color);
+  color: var(--text-tertiary-color);
+
+  a {
+    color: var(--text-tertiary-color);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  a.router-link-active {
+    color: var(--accent-color);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .router-link-active {
+    color: var(--accent-color);
+  }
+
+  .router-link-active svg {
+    fill: var(--accent-color);
+  }
+}
