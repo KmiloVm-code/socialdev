@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { ExploreRoutingModule } from './explore-routing-module';
 import { Explore } from './explore';
+import { DeveloperCard } from './components/developer-card/developer-card';
+import { ProjectCard } from './components/project-card/project-card';
 
 
 @NgModule({
   declarations: [
-    Explore
+    Explore,
+    DeveloperCard,
+    ProjectCard
   ],
   imports: [
     CommonModule,

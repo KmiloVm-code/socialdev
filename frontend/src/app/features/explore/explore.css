@@ -56,69 +56,15 @@ h3 {
 
 .developer-profile {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: flex-start;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.developer-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 0.5rem;
-    object-fit: cover;
-    background-color: var(--card-border-color);
-  }
-}
-
-.developer-info {
-  text-align: center;
-
-  p {
-    margin: 0;
-    color: var(--text-secondary-color);
-    font-size: 0.8rem;
-    margin-bottom: 2.5rem;
-  }
+  gap: 1rem;
 }
 
 .projects-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 1rem;
-}
-
-.project-card {
-  display: flex;
-  flex-direction: column;
-
-  img {
-    width: 100%;
-    aspect-ratio: 1/1;
-    border-radius: 8px;
-    margin-bottom: 0.5rem;
-    object-fit: cover;
-  }
-}
-
-.project-info {
-  text-align: start;
-
-  p {
-    margin: 0;
-    color: var(--text-tertiary-color);
-    font-size: 0.8rem;
-    line-height: 1.2;
-    font-weight: 400;
-    text-wrap: balance;
-    margin-bottom: 2.5rem;
-  }
 }
 
 .trending-topics {
