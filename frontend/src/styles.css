@@ -2,7 +2,7 @@
   font-family: 'Poppins', sans-serif;
   --primary-color: #007BFF; /* Azul para elementos interactivos */
   --secondary-color: #343A40; /* Gris oscuro para texto principal y fondos sutiles */
-  --accent-color: #17A2B8; /* Cian para resaltados y elementos de interacción */
+  --accent-color: #007BFF; /* Cian para resaltados y elementos de interacción */
   --background-color: #101922; /* Gris oscuro para fondos sutiles */
   --text-primary-color: #ffffff; /* Gris oscuro para texto principal */
   --text-secondary-color: #c1c6cd; /* Gris más claro para texto secundario */
@@ -17,4 +17,6 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
+  background-color: var(--background-color);
 }

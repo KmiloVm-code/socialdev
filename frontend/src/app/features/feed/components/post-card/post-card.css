@@ -4,11 +4,11 @@
   gap: 10px;
   background-color: var(--card-background-color);
   border-radius: 10px;
-  padding: 10px;
+  padding: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: all 0.3s ease;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 
 .post-card:hover {
@@ -51,7 +51,6 @@
 }
 
 .post-card__content {
-  padding: 10px;
   font-size: 14px;
   color: var(--text-secondary-color);
   line-height: 1.5;
@@ -59,6 +58,7 @@
 
   p {
     margin: 0;
+    text-wrap: balance;
   }
 }
 
@@ -80,8 +80,8 @@
   }
 
   svg {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     color: red;
   }
 }
@@ -98,8 +98,8 @@
   }
 
   svg {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     color: var(--text-tertiary-color);
   }
 }
@@ -110,8 +110,8 @@
   gap: 10px;
 
   svg {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     color: var(--text-tertiary-color);
   }
 }

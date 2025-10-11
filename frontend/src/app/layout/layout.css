@@ -13,5 +13,7 @@
     padding: 1.5rem;
     background-color: var(--background-color);
     overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
   }
 }

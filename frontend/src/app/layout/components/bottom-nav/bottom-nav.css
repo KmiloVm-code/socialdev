@@ -9,11 +9,20 @@
   a {
     color: var(--text-tertiary-color);
     text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   a.router-link-active {
     color: var(--accent-color);
+    svg {
+      fill: var(--accent-color);
+    }
   }
 
   svg {
@@ -23,9 +32,8 @@
 
   .router-link-active {
     color: var(--accent-color);
-  }
-
-  .router-link-active svg {
-    fill: var(--accent-color);
+    svg {
+      fill: var(--accent-color);
+    }
   }
 }
