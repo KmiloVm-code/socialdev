@@ -1,9 +1,10 @@
 .chat-item {
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   cursor: pointer;
   min-width: 0;
+  margin: 0 -1rem;
   transition: background-color 0.3s;
 }
 
