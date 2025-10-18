@@ -10,7 +10,7 @@
 
   .layout-content {
     flex: 1;
-    padding: 0.75rem;
+    padding: 1rem;
     background-color: var(--background-color);
     overflow-y: auto;
     overflow-x: hidden;

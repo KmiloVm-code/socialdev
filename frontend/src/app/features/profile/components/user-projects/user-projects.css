@@ -1,0 +1,47 @@
+.user-projects {
+  display: flex;
+  margin-top: 1rem;
+  gap: 0.7rem;
+  padding: 1rem;
+  border: 1px solid var(--card-border-color);
+  border-radius: 8px;
+}
+
+small {
+  font-size: 0.8em;
+  color: var(--text-tertiary-color);
+}
+
+h3 {
+  font-size: 1em;
+  color: var(--text-primary-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  text-wrap: balance;
+}
+
+p {
+  color: var(--text-tertiary-color);
+  line-height: 1.4;
+  font-size: smaller;
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  text-wrap: balance;
+}
+
+.projects-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-image {
+
+  img {
+    width: 100px;
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+}
