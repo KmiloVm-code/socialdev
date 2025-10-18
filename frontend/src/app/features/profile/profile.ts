@@ -6,6 +6,7 @@ import { User } from '../../core/models/user';
   selector: 'app-profile',
   standalone: false,
   templateUrl: './profile.html',
+  styleUrl: './profile.css',
 })
 export class Profile implements OnInit {
   user: User | null = null;
