@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Layout } from './layout/layout';
+import { Login } from './features/login/login';
+import { Register } from './features/register/register';
 
 const routes: Routes = [
+  { path: 'login', component: Login },
+  { path: 'register', component: Register },
   {
     path: '',
     component: Layout,
