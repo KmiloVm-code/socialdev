@@ -2,6 +2,10 @@
   display: flex;
   flex-direction: column;
   height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: relative;
 
   .layout-body {
     display: flex;
@@ -15,5 +19,13 @@
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: none;
+  }
+}
+
+/* En pantallas pequeñas, ocupar todo el ancho disponible */
+@media (max-width: 480px) {
+  .layout {
+    max-width: 100%;
+    box-shadow: none;
   }
 }
