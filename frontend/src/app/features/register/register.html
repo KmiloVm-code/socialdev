@@ -1,1 +1,22 @@
-<p>register works!</p>
+<div class="register-container">
+  <h2>SocialDev</h2>
+  <form class="register-form">
+    <h1>Crea tu cuenta</h1>
+    <app-input type="text" id="username" name="username" [required]="true" placeholder="Nombre de usuario">
+    </app-input>
+
+    <app-input type="email" id="email" name="email" [required]="true" placeholder="Correo electrónico">
+    </app-input>
+
+    <app-input type="password" id="password" name="password" [required]="true" placeholder="Contraseña">
+    </app-input>
+
+    <app-input type="password" id="confirmPassword" name="confirmPassword" [required]="true"
+      placeholder="Confirmar contraseña">
+    </app-input>
+
+    <app-button type="submit" [label]="'Registrarse'"></app-button>
+  </form>
+
+  <p>¿Ya tienes una cuenta? <a href="/login">Inicia sesión aquí</a>.</p>
+</div>

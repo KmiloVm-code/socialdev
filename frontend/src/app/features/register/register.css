@@ -1,0 +1,49 @@
+.register-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 1rem;
+
+  h1 {
+    text-align: center;
+    color: var(--text-primary-color);
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--text-primary-color);
+    position: absolute;
+    top: 1rem;
+  }
+
+  p {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary-color);
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--accent-color);
+    }
+  }
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  gap: 1.2rem;
+  text-align: center;
+}
