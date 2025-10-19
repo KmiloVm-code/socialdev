@@ -1,1 +1,43 @@
-<p>login works!</p>
+<div class="login-container">
+  <h2>SocialDev</h2>
+
+  <form class="login-form">
+    <div>
+      <h1>Bienvenido</h1>
+      <p>Inicia sesión para continuar tu viaje</p>
+    </div>
+    <div class="form-group">
+      <app-input
+        type="text"
+        id="username"
+        name="username"
+        [required]="true"
+        placeholder="correo o nombre de usuario"
+      ></app-input>
+    </div>
+
+    <div class="form-group">
+      <app-input
+        type="password"
+        id="password"
+        name="password"
+        [required]="true"
+        placeholder="contraseña"
+      ></app-input>
+    </div>
+
+    <div class="forgot-password">
+      <a href="#">Olvido su contraseña?</a>
+    </div>
+
+    <app-button
+      type="submit"
+      [label]="'Iniciar sesión'"
+    ></app-button>
+  </form>
+
+  <div class="register-link">
+    <p>¿No tienes una cuenta?</p>
+    <a routerLink="/register">Regístrate aquí</a>
+  </div>
+</div>

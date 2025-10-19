@@ -1,0 +1,87 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100dvh;
+  background-color: var(--background-primary-color);
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text-primary-color);
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text-primary-color);
+}
+
+p {
+  font-size: 1rem;
+  color: var(--text-tertiary-color);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+.forgot-password {
+  text-align: right;
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--accent-color);
+    }
+  }
+}
+
+.register-link {
+  width: 100%;
+  display: flex;
+  margin-top: 1rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+
+  p {
+    color: var(--text-tertiary-color);
+    margin: 0;
+  font-size: 0.9rem;
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 0.9rem;
+
+    &:hover {
+      color: var(--accent-color);
+    }
+  }
+}
