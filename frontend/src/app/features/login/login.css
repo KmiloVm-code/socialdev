@@ -71,7 +71,7 @@ form {
   p {
     color: var(--text-tertiary-color);
     margin: 0;
-  font-size: 0.9rem;
+    font-size: 0.9rem;
   }
 
   a {
@@ -79,6 +79,7 @@ form {
     text-decoration: none;
     transition: color 0.2s;
     font-size: 0.9rem;
+    font-weight: bold;
 
     &:hover {
       color: var(--accent-color);
