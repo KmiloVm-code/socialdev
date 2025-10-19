@@ -1,0 +1,23 @@
+.inputClass {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--background-secondary-color);
+  color: var(--text-primary-color);
+
+  &:focus {
+    outline: 2px solid var(--primary-color);
+  }
+
+  &::placeholder {
+    color: var(--text-tertiary-color);
+    opacity: 1;
+  }
+
+  &::-ms-reveal {
+    filter: invert(80%);
+  }
+}
