@@ -10,16 +10,16 @@ import { User } from '../../models/user';
 export class Auth {
   constructor(private apiService: ApiService) {}
 
-  login(email: string, password: string): Observable<AuthModel> {
+  login(email: string, password: string, withCredentials = true): Observable<AuthModel> {
     console.log('AuthService login called with:', email, password);
-    return this.apiService.post<AuthModel>('/auth/login', { email, password });
+    return this.apiService.post<AuthModel>('/auth/login', { email, password }, withCredentials);
   }
 
-  logout(): Observable<void> {
-    return this.apiService.post<void>('/auth/logout', {});
+  logout(withCredentials = true): Observable<void> {
+    return this.apiService.post<void>('/auth/logout', {}, withCredentials);
   }
 
-  getCurrentUser(): Observable<User> {
-    return this.apiService.get<User>('/auth/me');
+  getCurrentUser(withCredentials = true): Observable<User> {
+    return this.apiService.get<User>('/auth/me', withCredentials);
   }
 }
