@@ -9,10 +9,12 @@
     <div class="form-group">
       <app-input
         type="text"
-        id="username"
-        name="username"
+        id="email"
+        name="email"
         [required]="true"
-        placeholder="correo o nombre de usuario"
+        placeholder="correo electrónico"
+        [value]="email"
+        (valueChange)="email = $event"
       ></app-input>
     </div>
 
@@ -23,6 +25,8 @@
         name="password"
         [required]="true"
         placeholder="contraseña"
+        [value]="password"
+        (valueChange)="password = $event"
       ></app-input>
     </div>
 
@@ -33,6 +37,7 @@
     <app-button
       type="submit"
       [label]="'Iniciar sesión'"
+      (click)="login(email, password)"
     ></app-button>
   </form>
 

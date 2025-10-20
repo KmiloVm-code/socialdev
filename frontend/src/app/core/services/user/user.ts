@@ -10,14 +10,14 @@ export class UserService {
   constructor(private api: ApiService) {}
 
   getAll(): Observable<User[]> {
-    return this.api.get<User[]>('users');
+    return this.api.get<User[]>('/users');
   }
 
   getById(id: string): Observable<User> {
-    return this.api.get<User>(`users/${id}`);
+    return this.api.get<User>(`/users/${id}`);
   }
 
   updateUser(id: string, data: Partial<User>): Observable<User> {
-    return this.api.put<User>(`users/${id}`, data as JSON);
+    return this.api.put<User>(`/users/${id}`, data as JSON);
   }
 }
