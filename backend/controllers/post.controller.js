@@ -4,6 +4,7 @@ export const createPost = async (req, res) => {
   try {
     const post = new Post(req.body);
     await post.save();
+    await post.populate('author', 'name email avatar');
     res.status(201).json(post);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -12,7 +13,7 @@ export const createPost = async (req, res) => {
 
 export const getPosts = async (req, res) => {
   try {
-    const posts = await Post.find();
+    const posts = await Post.find().populate('author', 'name email avatar');
     res.status(200).json(posts);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -21,7 +22,7 @@ export const getPosts = async (req, res) => {
 
 export const getPost = async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.id).populate('author', 'name email avatar');
     if (!post) {
       return res.status(404).json({ error: "Post no encontrado" });
     }
@@ -35,7 +36,7 @@ export const updatePost = async (req, res) => {
   try {
     const post = await Post.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
-    });
+    }).populate('author', 'name email avatar');
     if (!post) {
       return res.status(404).json({ error: "Post no encontrado" });
     }
@@ -59,7 +60,7 @@ export const deletePost = async (req, res) => {
 
 export const likePost = async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.id).populate('author', 'name email avatar');
     if (!post) {
       return res.status(404).json({ error: "Post no encontrado" });
     }
@@ -77,7 +78,7 @@ export const likePost = async (req, res) => {
 
 export const commentPost = async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.id).populate('author', 'name email avatar');
     if (!post) {
       return res.status(404).json({ error: "Post no encontrado" });
     }
