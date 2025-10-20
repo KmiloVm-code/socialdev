@@ -1,7 +1,7 @@
 import {
   NgModule,
   provideBrowserGlobalErrorListeners,
-  provideZonelessChangeDetection,
+  provideZoneChangeDetection,
 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
@@ -18,7 +18,7 @@ import { Register } from './features/register/register';
   imports: [BrowserModule, AppRoutingModule, LayoutModule, SharedModule, BrowserModule],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideZonelessChangeDetection(),
+    provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(),
   ],
   bootstrap: [App],
