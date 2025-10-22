@@ -1,7 +1,7 @@
 <div class="login-container">
   <h2>SocialDev</h2>
 
-  <form class="login-form">
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div>
       <h1>Bienvenido</h1>
       <p>Inicia sesión para continuar tu viaje</p>
@@ -13,9 +13,12 @@
         name="email"
         [required]="true"
         placeholder="correo electrónico"
-        [value]="email"
-        (valueChange)="email = $event"
+        [value]="loginForm.get('email')?.value"
+        (valueChange)="loginForm.get('email')?.setValue($event)"
       ></app-input>
+      <div *ngIf="f['email'].invalid && f['email'].touched" class="error">
+        Correo electrónico inválido
+      </div>
     </div>
 
     <div class="form-group">
@@ -25,9 +28,12 @@
         name="password"
         [required]="true"
         placeholder="contraseña"
-        [value]="password"
-        (valueChange)="password = $event"
+        [value]="loginForm.get('password')?.value"
+        (valueChange)="loginForm.get('password')?.setValue($event)"
       ></app-input>
+      <div *ngIf="f['password'].invalid && f['password'].touched" class="error">
+        Contraseña inválida
+      </div>
     </div>
 
     <div class="forgot-password">
@@ -37,7 +43,7 @@
     <app-button
       type="submit"
       [label]="'Iniciar sesión'"
-      (click)="login(email, password)"
+      [disabled]="loginForm.invalid"
     ></app-button>
   </form>
 
