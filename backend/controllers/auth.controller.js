@@ -41,9 +41,10 @@ export const login = async (req, res) => {
       .json({
         message: "Login exitoso",
         user: {
-          id: user.id,
+          _id: user.id,
           name: user.name,
           email: user.email,
+          avatar: user.avatar,
           role: user.role,
         },
       });
@@ -55,6 +56,18 @@ export const login = async (req, res) => {
 export const logout = async (req, res) => {
   try {
     res.clearCookie("access_token").json({ message: "Logout exitoso" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const getMe = async (req, res) => {
+  try {
+    const user = await User.findById(req.userId).select("-password");
+    if (!user) {
+      return res.status(404).json({ error: "Usuario no encontrado" });
+    }
+    res.status(200).json({ user });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
