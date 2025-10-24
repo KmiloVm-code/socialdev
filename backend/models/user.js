@@ -19,6 +19,29 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: "https://cdn-icons-png.flaticon.com/512/149/149071.png"
     },
+    bio: {
+        type: String,
+        default: "Este usuario no ha proporcionado una biografía."
+    },
+    skills: {
+        type: [String],
+        default: []
+    },
+    profession: {
+        type: String,
+        default: "Desarrollador"
+    },
+    projects: {
+        type: [
+            {
+                title: String,
+                description: String,
+                image: String,
+                url: String
+            }
+        ],
+        default: []
+    },
     role: {
         type: String,
         enum: ["user", "admin"],

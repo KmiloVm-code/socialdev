@@ -4,9 +4,9 @@ import { getUsers, getUser, getUserByEmail, updateUser, deleteUser } from "../co
 const router = express.Router();
 
 router.get("/", getUsers);
-router.get("/:id", getUser);
+router.get("/me", getUser);
 router.get("/email/:email", getUserByEmail);
-router.put("/:id", updateUser);
-router.delete("/:id", deleteUser);
+router.put("/", updateUser);
+router.delete("/", deleteUser);
 
 export default router;

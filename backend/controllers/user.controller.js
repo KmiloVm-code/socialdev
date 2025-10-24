@@ -11,7 +11,7 @@ export const getUsers = async (req, res) => {
 
 export const getUser = async (req, res) => {
   try {
-    const user = await User.findById(req.params.id).select("-password");
+    const user = await User.findById(req.userId).select("-password");
     if (!user) {
       return res.status(404).json({ error: "Usuario no encontrado" });
     }
@@ -37,16 +37,11 @@ export const getUserByEmail = async (req, res) => {
 
 export const updateUser = async (req, res) => {
   try {
-    const { id, name, email, avatar, role } = req.body;
-    if (id !== req.params.id) {
-      return res
-        .status(403)
-        .json({ error: "No tienes permiso para actualizar este usuario" });
-    }
+    const { name, email, avatar, role, bio, skills, projects, profession } = req.body;
 
     const user = await User.findByIdAndUpdate(
-      req.params.id,
-      { name, email, avatar, role },
+      req.userId,
+      { name, email, avatar, role, bio, skills, projects, profession },
       { new: true }
     ).select("-password");
     if (!user) {
@@ -60,7 +55,7 @@ export const updateUser = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
   try {
-    const user = await User.findByIdAndDelete(req.params.id);
+    const user = await User.findByIdAndDelete(req.userId);
     if (!user) {
       return res.status(404).json({ error: "Usuario no encontrado" });
     }
