@@ -1,4 +1,6 @@
-<app-user-info></app-user-info>
-<h3>Proyectos</h3>
-<app-user-projects></app-user-projects>
-<app-user-projects></app-user-projects>
+<ng-container *ngIf="currentUser$ | async as currentUser">
+  <app-user-info [user]="currentUser"></app-user-info>
+  <h3>Proyectos</h3>
+
+  <app-user-projects *ngFor="let project of currentUser?.projects" [project]="project"></app-user-projects>
+</ng-container>

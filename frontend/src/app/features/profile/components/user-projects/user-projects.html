@@ -1,15 +1,12 @@
-<article class="user-projects" aria-labelledby="user-projects-heading">
+<article class="user-projects" aria-labelledby="user-projects-heading" (click)="onProjectClick()">
   <div class="projects-header">
     <small>Proyecto Destacado</small>
-    <h3>Aplicacion de gestion de tareas</h3>
+    <h3>{{ project?.title }}</h3>
     <p>
-      Esta aplicación permite a los usuarios gestionar sus tareas de manera eficiente, estableciendo prioridades y
-      fechas
-      de vencimiento.
+      {{ project?.description }}
     </p>
   </div>
   <picture class="project-image">
-    <img src="https://kmilovm-code.github.io/Portafolio/img/taskflow.webp"
-      alt="Captura de pantalla de la aplicación de gestión de tareas">
+    <img [src]="project?.image" [alt]="project?.title">
   </picture>
 </article>

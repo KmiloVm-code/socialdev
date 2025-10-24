@@ -14,7 +14,7 @@ export class UserService {
   }
 
   getById(id: string): Observable<User> {
-    return this.api.get<User>(`/users/${id}`);
+    return this.api.get<User>(`/users/me`);
   }
 
   updateUser(id: string, data: Partial<User>): Observable<User> {

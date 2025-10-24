@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../core/services/user/user';
+import { Component } from '@angular/core';
+import { Auth } from '../../core/services/auth/auth';
 import { User } from '../../core/models/user';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -8,15 +9,10 @@ import { User } from '../../core/models/user';
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })
-export class Profile implements OnInit {
-  user: User | null = null;
+export class Profile {
+  currentUser$: Observable<User | null>;
 
-  constructor(private userService: UserService) {}
-
-  ngOnInit(): void {
-    this.userService.getById('68e6f883e8c8b3105d0f2388').subscribe((user) => {
-      this.user = user;
-      console.log(user);
-    });
+  constructor(private auth: Auth) {
+    this.currentUser$ = this.auth.currentUser$;
   }
 }

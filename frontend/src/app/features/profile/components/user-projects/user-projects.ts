@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Project } from '../../../../core/models/user';
 
 @Component({
   selector: 'app-user-projects',
@@ -7,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrl: './user-projects.css'
 })
 export class UserProjects {
+  @Input() project: Project | null = null;
 
+  @Output() projectClicked = new EventEmitter<Project>();
+
+  onProjectClick() {
+    if (this.project?.url) {
+      window.open(this.project.url, '_blank');
+      this.projectClicked.emit(this.project);
+    }
+  }
 }
