@@ -35,13 +35,6 @@ export class Feed implements OnInit {
     });
   }
 
-  createPost(content: string) {
-    this.postService.createPost(content).subscribe((newPost: PostModel) => {
-      this.posts.unshift(newPost);
-      this.postCreated.emit(newPost);
-    });
-  }
-
   trackByPostId(index: number, post: PostModel): any {
     return post._id || index;
   }

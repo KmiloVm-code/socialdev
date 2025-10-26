@@ -1,4 +1,5 @@
 .formulario-post {
+  position: relative;
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -83,4 +84,64 @@
   color: var(--primary-color);
   background-color: var(--background-secondary-color);
   border-radius: 8px;
+}
+
+  h4 {
+    color: var(--text-primary-color);
+    margin-bottom: 10px;
+  }
+
+.preview-container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.image-preview {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.btn-remove {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.archivos-adjuntos {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.archivos-adjuntos ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.archivos-adjuntos li {
+  padding: 8px;
+  margin: 5px 0;
+  background-color: var(--background-secondary-color);
+  color: var(--text-tertiary-color);
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-remove-file {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
 }

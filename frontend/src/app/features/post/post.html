@@ -1,13 +1,14 @@
-<form action="#" method="post" class="formulario-post">
+<form class="formulario-post" (ngSubmit)="onSubmit()" [formGroup]="postForm">
   <div class="campos-post">
-    <input type="text" placeholder="Título" />
-    <textarea placeholder="Descripción (admite código)"></textarea>
-    <input type="text" placeholder="Etiquetas (separadas por comas)" />
+    <input type="text" placeholder="Título" formControlName="title" />
+    <textarea placeholder="Descripción (admite código)" formControlName="content"></textarea>
+    <input type="text" placeholder="Etiquetas (separadas por comas)" formControlName="tags" />
   </div>
 
   <div class="adjuntos">
     <h3>Adjuntos</h3>
-    <a href="" class="opcion-adjunto">
+    <input type="file" #fileInput (change)="onFileSelected($event)" accept=".pdf,.doc,.docx,.txt" hidden formControlName="attachments" />
+    <a (click)="fileInput.click()" class="opcion-adjunto">
       <i class="icono archivo">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -20,7 +21,8 @@
       <span class="texto-opcion">Subir archivo</span>
     </a>
 
-    <a href="" class="opcion-adjunto">
+    <input type="file" #imageInput (change)="onImageSelected($event)" accept="image/*" hidden formControlName="image" />
+    <a (click)="imageInput.click()" class="opcion-adjunto">
       <i class="icono imagen">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -34,7 +36,26 @@
       </i>
       <span class="texto-opcion">Añadir imagen</span>
     </a>
+    <!-- Vista previa de imagen -->
+    <div *ngIf="imagePreview" class="preview-container">
+      <h4>Vista previa de imagen:</h4>
+      <img [src]="imagePreview" alt="Preview" class="image-preview" />
+      <button type="button" (click)="removeImage()" class="btn-remove">✕ Quitar imagen</button>
+    </div>
+    
+    <!-- Lista de archivos adjuntos -->
+    <div *ngIf="selectedFiles.length > 0" class="archivos-adjuntos">
+      <h4>Archivos adjuntos:</h4>
+      <ul>
+        <li *ngFor="let file of selectedFiles; let i = index">
+          📎 {{ file.name }} ({{ (file.size / 1024).toFixed(2) }} KB)
+          <button type="button" (click)="removeFile(i)" class="btn-remove-file">✕</button>
+        </li>
+      </ul>
+    </div>
   </div>
+
+
 
   <app-button type="submit" [label]="'Publicar'"></app-button>
 </form>
