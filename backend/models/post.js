@@ -15,13 +15,30 @@ const postSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    image: String,
+    tags: [
+      {
+        type: String,
+      },
+    ],
+    image: {
+      url: String,
+      filename: String,
+      mimetype: String,
+      size: Number,
+    },
+    attachments: [
+      {
+        url: String,
+        filename: String,
+        originalname: String,
+        mimetype: String,
+        size: Number
+      }
+    ],
     likes: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-        required: true,
-        unique: true,
       },
     ],
     comments: [
