@@ -10,7 +10,7 @@ export interface Post {
   _id: string;
   title: string;
   content: string;
-  author: User | string;
+  author: author;
   image?: image;
   attachments?: attachment[];
   tags?: string[];
@@ -18,6 +18,13 @@ export interface Post {
   comments: Comment[];
   createdAt: Date;
   updatedAt?: Date;
+}
+
+interface author {
+  _id: string;
+  name: string;
+  email: string;
+  avatar: string;
 }
 
 interface image {

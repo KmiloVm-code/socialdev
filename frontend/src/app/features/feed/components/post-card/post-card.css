@@ -21,6 +21,20 @@
   gap: 10px;
 }
 
+.btn-delete-post {
+  margin-left: auto;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-delete-post.hidden {
+  display: none;
+}
+
 .post-card__header-avatar img {
   width: 52px;
   height: 52px;
@@ -91,8 +105,21 @@
   svg {
     width: 24px;
     height: 24px;
-    color: red;
+    color: #e74c3c;
   }
+}
+
+.post-card__footer-like.liked svg {
+  fill: #e74c3c; /* Color rojo para el like */
+}
+
+.post-card__footer-like svg {
+  cursor: pointer;
+  transition: fill 0.2s ease;
+}
+
+.post-card__footer-like svg:hover {
+  fill: #e74c3c;
 }
 
 .post-card__footer-comment {

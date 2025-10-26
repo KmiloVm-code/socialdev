@@ -9,6 +9,7 @@
       <h2>{{ getAuthorName() }}</h2>
       <p>{{ post.createdAt | date: 'short' }}</p>
     </div>
+    <button (click)="onDeletePost()" class="btn-delete-post" [class.hidden]="!isPostByCurrentUser()">Eliminar post</button>
   </header>
   <div class="post-card__content">
     <h3 *ngIf="post.title">{{ post.title }}</h3>
@@ -16,7 +17,7 @@
     <img *ngIf="post.image" [src]="post.image.url" alt="{{ post.image.filename }}" class="post-card__image">
   </div>
   <footer class="post-card__footer">
-    <div class="post-card__footer-like" (click)="onLike()">
+    <div class="post-card__footer-like" (click)="onLike()" [class.liked]="isLikedByCurrentUser()">
       <span class="post-card__footer-like-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"

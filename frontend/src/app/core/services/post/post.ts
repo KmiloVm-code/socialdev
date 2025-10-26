@@ -16,4 +16,12 @@ export class Post {
   createPost(formData: FormData): Observable<PostModel> {
     return this.apiService.post<PostModel>('/posts', formData);
   }
+
+  likePost(postId: string): Observable<PostModel> {
+    return this.apiService.post<PostModel>(`/posts/${postId}/like`, {});
+  }
+
+  deletePost(postId: string): Observable<void> {
+    return this.apiService.delete<void>(`/posts/${postId}`);
+  }
 }

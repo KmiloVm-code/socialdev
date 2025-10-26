@@ -1,0 +1,18 @@
+.feed-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.loading-state {
+  text-align: center;
+  color: var(--text-secondary-color);
+  font-size: 16px;
+  margin-top: 2rem;
+}
+
+.no-posts-state {
+  text-align: center;
+  color: var(--text-secondary-color);
+  font-size: 16px;
+  margin-top: 2rem;
+}
