@@ -62,6 +62,15 @@
   }
 }
 
+.post-card__image {
+  width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: top;
+  margin-top: 10px;
+}
+
 .post-card__footer {
   display: flex;
   justify-content: space-between;
