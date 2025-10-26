@@ -86,10 +86,15 @@
   border-radius: 8px;
 }
 
-  h4 {
-    color: var(--text-primary-color);
-    margin-bottom: 10px;
-  }
+h4 {
+  color: var(--text-primary-color);
+  margin-bottom: 10px;
+}
+
+svg {
+  width: 16px;
+  height: 16px;
+}
 
 .preview-container {
   margin-top: 1rem;
@@ -113,6 +118,13 @@
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
 }
 
 .archivos-adjuntos {
@@ -138,6 +150,7 @@
 }
 
 .btn-remove-file {
+  display: flex;
   background-color: #ff4444;
   color: white;
   border: none;
