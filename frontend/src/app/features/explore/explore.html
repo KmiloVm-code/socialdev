@@ -11,15 +11,14 @@
 
 <h2>Desarrolladores</h2>
 <div class="developer-profile">
-  <app-developer-card></app-developer-card>
-  <app-developer-card></app-developer-card>
-  <app-developer-card></app-developer-card>
+  <app-developer-card *ngFor="let user of users" [user]="user"></app-developer-card>
 </div>
 
 <h2>Proyectos</h2>
 <div class="projects-list">
-  <app-project-card></app-project-card>
-  <app-project-card></app-project-card>
+  <ng-container *ngFor="let user of users">
+    <app-project-card *ngIf="user?.projects?.[0]" [project]="user?.projects?.[0]"></app-project-card>
+  </ng-container>
 </div>
 
 <h2>Temas de Tendencia</h2>

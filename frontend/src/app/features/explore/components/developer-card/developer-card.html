@@ -1,9 +1,9 @@
 <article class="developer-card">
   <img
-    src="https://static.vecteezy.com/system/resources/thumbnails/027/951/137/small_2x/stylish-spectacles-guy-3d-avatar-character-illustrations-png.png"
-    alt="Avatar de usuario">
+    src="{{ user?.avatar }}"
+    alt="{{ user?.name }}'s profile picture">
   <div class="developer-info">
-    <h3>Juan Pérez</h3>
-    <p>@juanperez</p>
+    <h3>{{ user?.name }}</h3>
+    <p>@{{ user?.email }}</p>
   </div>
 </article>
