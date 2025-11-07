@@ -9,7 +9,9 @@
         (load)="onImageLoad()"
       />
       <figcaption>{{profile.name}}</figcaption>
-      <span class="image-error" *ngIf="imageError">URL de imagen inválida</span>
+      <span class="image-error" *ngIf="imageError">
+        No se pudo cargar la imagen. Usando avatar por defecto.
+      </span>
     </figure>
 
     <label for="avatar">URL de Avatar:</label>

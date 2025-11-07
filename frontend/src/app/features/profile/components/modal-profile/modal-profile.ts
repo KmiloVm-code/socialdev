@@ -16,11 +16,16 @@ export class ModalProfile {
   profileForm!: FormGroup;
   avatarPreview: string = '';
   imageError: boolean = false;
+  defaultAvatar: string = 'https://ui-avatars.com/api/?name=User&background=007BFF&color=fff&size=120';
 
   constructor(private userService: UserService, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-    this.avatarPreview = this.profile.avatar || '';
+    // Generar avatar por defecto con el nombre del usuario
+    const userName = this.profile.name || 'User';
+    this.defaultAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(userName)}&background=007BFF&color=fff&size=120`;
+    this.avatarPreview = this.profile.avatar || this.defaultAvatar;
+    
     this.profileForm = this.formBuilder.group({
       avatar: [this.profile.avatar, Validators.required],
       name: [this.profile.name, Validators.required],
@@ -48,7 +53,8 @@ export class ModalProfile {
 
   onImageError(): void {
     this.imageError = true;
-    this.avatarPreview = this.profile.avatar || '';
+    // Si la imagen actual falla, usar avatar por defecto
+    this.avatarPreview = this.defaultAvatar;
   }
 
   onImageLoad(): void {
@@ -60,7 +66,7 @@ export class ModalProfile {
 
   openModal() {
     if (this.modalElement?.nativeElement) {
-      this.avatarPreview = this.profile.avatar || '';
+      this.avatarPreview = this.profile.avatar || this.defaultAvatar;
       this.imageError = false;
       this.modalElement.nativeElement.showModal();
     }

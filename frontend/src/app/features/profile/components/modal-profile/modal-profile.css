@@ -58,9 +58,10 @@
 
     .image-error {
       display: block;
-      color: #ef4444;
+      color: var(--text-tertiary-color);
       font-size: 0.75rem;
       margin-top: 0.25rem;
+      font-style: italic;
     }
   }
 

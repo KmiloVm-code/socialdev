@@ -1,6 +1,10 @@
 <article class="user-info" aria-labelledby="user-name">
   <div class="header-avatar">
-    <img src="{{user?.avatar}}" alt="Avatar de {{user?.name}} - Hombre con gafas estilosas">
+    <img 
+      [src]="avatarUrl" 
+      alt="Avatar de {{user?.name}}"
+      (error)="onImageError($event)"
+    >
   </div>
   <div class="user-info-details">
     <h2 id="user-name">{{user?.name}}</h2>
