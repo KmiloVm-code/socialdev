@@ -39,8 +39,8 @@ export const login = async (req, res) => {
         httpOnly: true,
         secure: isProduction,
         sameSite: isProduction ? "none" : "lax",
-        domain: isProduction ? process.env.COOKIE_DOMAIN : "localhost",
         maxAge: 1000 * 60 * 60,
+        path: "/",
       })
       .json({
         message: "Login exitoso",
