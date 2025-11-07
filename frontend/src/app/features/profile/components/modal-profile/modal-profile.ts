@@ -14,10 +14,13 @@ export class ModalProfile {
   @Input() profile: User = {} as User;
 
   profileForm!: FormGroup;
+  avatarPreview: string = '';
+  imageError: boolean = false;
 
   constructor(private userService: UserService, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
+    this.avatarPreview = this.profile.avatar || '';
     this.profileForm = this.formBuilder.group({
       avatar: [this.profile.avatar, Validators.required],
       name: [this.profile.name, Validators.required],
@@ -26,6 +29,30 @@ export class ModalProfile {
       bio: [this.profile.bio, Validators.required],
       skills: [this.profile.skills?.join(', ') || '', Validators.required],
     });
+
+    // Suscribirse a cambios en el campo avatar
+    this.profileForm.get('avatar')?.valueChanges.subscribe((url: string) => {
+      this.updateAvatarPreview(url);
+    });
+  }
+
+  updateAvatarPreview(url: string): void {
+    if (url && url.trim() !== '') {
+      this.avatarPreview = url;
+      this.imageError = false;
+    } else {
+      this.avatarPreview = this.profile.avatar || '';
+      this.imageError = false;
+    }
+  }
+
+  onImageError(): void {
+    this.imageError = true;
+    this.avatarPreview = this.profile.avatar || '';
+  }
+
+  onImageLoad(): void {
+    this.imageError = false;
   }
 
   @Output() close = new EventEmitter<void>();
@@ -33,6 +60,8 @@ export class ModalProfile {
 
   openModal() {
     if (this.modalElement?.nativeElement) {
+      this.avatarPreview = this.profile.avatar || '';
+      this.imageError = false;
       this.modalElement.nativeElement.showModal();
     }
   }

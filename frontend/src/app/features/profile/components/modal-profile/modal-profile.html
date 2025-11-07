@@ -2,9 +2,24 @@
   <h2>Edit Profile</h2>
   <form (ngSubmit)="onSubmit()" [formGroup]="profileForm" autocomplete="off" class="profile-form">
     <figure class="avatar-preview">
-      <img [src]="profile.avatar" alt="Avatar de {{profile.name}}" />
+      <img 
+        [src]="avatarPreview" 
+        alt="Avatar de {{profile.name}}"
+        (error)="onImageError()"
+        (load)="onImageLoad()"
+      />
       <figcaption>{{profile.name}}</figcaption>
+      <span class="image-error" *ngIf="imageError">URL de imagen inválida</span>
     </figure>
+
+    <label for="avatar">URL de Avatar:</label>
+    <app-input
+      type="text"
+      formControlName="avatar"
+      placeholder="https://ejemplo.com/avatar.jpg"
+      [required]="true"
+    ></app-input>
+
     <label for="name">Nombre:</label>
     <app-input
       type="text"
