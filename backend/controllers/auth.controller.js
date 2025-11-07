@@ -30,12 +30,16 @@ export const login = async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
+
+    const isProduction = process.env.NODE_ENV === 'production';
+
     res
       .status(200)
       .cookie("access_token", token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
+        secure: isProduction,
+        sameSite: isProduction ? "none" : "lax",
+        domain: isProduction ? process.env.COOKIE_DOMAIN : "localhost",
         maxAge: 1000 * 60 * 60,
       })
       .json({
