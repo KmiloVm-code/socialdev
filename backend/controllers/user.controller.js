@@ -64,3 +64,34 @@ export const deleteUser = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+export const addProject = async (req, res) => {
+  try {
+    const { title, description, image, url } = req.body;
+    
+    if (!title || !description) {
+      return res.status(400).json({ error: "El título y la descripción son obligatorios" });
+    }
+
+    const user = await User.findById(req.userId);
+    if (!user) {
+      return res.status(404).json({ error: "Usuario no encontrado" });
+    }
+
+    const newProject = {
+      title,
+      description,
+      image: image || '',
+      url: url || ''
+    };
+
+    user.projects = user.projects || [];
+    user.projects.push(newProject);
+    await user.save();
+
+    const updatedUser = await User.findById(req.userId).select("-password");
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};

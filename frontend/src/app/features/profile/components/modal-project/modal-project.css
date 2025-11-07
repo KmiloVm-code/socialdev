@@ -1,0 +1,151 @@
+.modal-project {
+  top: 0;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  max-width: 480px;
+  width: 100%;
+  background: var(--background-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.modal-project::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary-color);
+  text-align: center;
+  flex: 1;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+  color: var(--text-secondary-color);
+}
+
+.close-btn:hover {
+  background-color: var(--background-secondary-color);
+  color: var(--text-primary-color);
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary-color);
+}
+
+.form-group textarea {
+  field-sizing: content;
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  resize: none;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--background-secondary-color);
+  color: var(--text-primary-color);
+  box-sizing: border-box;
+  min-height: 100px;
+}
+
+.form-group textarea::placeholder {
+  color: var(--text-tertiary-color);
+}
+
+.form-group textarea:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+.error {
+  color: #ef4444;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.btn-cancel {
+  padding: 0.625rem 1.25rem;
+  border: 1px solid var(--card-border-color);
+  background: var(--background-secondary-color);
+  color: var(--text-secondary-color);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-cancel:hover {
+  background-color: var(--background-tertiary-color);
+  color: var(--text-primary-color);
+  border-color: var(--text-tertiary-color);
+}
+
+@media (max-width: 640px) {
+  .modal-project {
+    width: 95%;
+    max-width: none;
+    padding: 0.75rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .modal-body {
+    gap: 0.875rem;
+  }
+
+  .modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .btn-cancel,
+  .modal-footer app-button {
+    width: 100%;
+  }
+}

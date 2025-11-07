@@ -8,9 +8,10 @@ import { Profile } from './profile';
 import { UserInfo } from './components/user-info/user-info';
 import { UserProjects } from './components/user-projects/user-projects';
 import { ModalProfile } from './components/modal-profile/modal-profile';
+import { ModalProject } from './components/modal-project/modal-project';
 
 @NgModule({
-  declarations: [Profile, UserInfo, UserProjects, ModalProfile],
+  declarations: [Profile, UserInfo, UserProjects, ModalProfile, ModalProject],
   imports: [CommonModule, ProfileRoutingModule, SharedModule, ReactiveFormsModule],
 })
 export class ProfileModule {}

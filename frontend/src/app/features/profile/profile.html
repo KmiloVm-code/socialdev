@@ -1,11 +1,13 @@
 <ng-container *ngIf="currentUser$ | async as currentUser">
   <app-user-info [user]="currentUser" (editProfile)="openEditModal()" class="user-info"></app-user-info>
-  <h3>Proyectos</h3>
+
+  <div class="projects-header">
+    <h3>Proyectos</h3>
+    <app-button label="Nuevo Proyecto" (click)="openProjectModal()"></app-button>
+  </div>
 
   <app-user-projects *ngFor="let project of currentUser?.projects" [project]="project"></app-user-projects>
 
-  <app-modal-profile
-    [profile]="currentUser"
-    (profileUpdated)="onProfileUpdated($event)"
-  ></app-modal-profile>
+  <app-modal-profile [profile]="currentUser" (profileUpdated)="onProfileUpdated($event)"></app-modal-profile>
+  <app-modal-project [userId]="currentUser._id" (projectAdded)="onProjectAdded($event)"></app-modal-project>
 </ng-container>

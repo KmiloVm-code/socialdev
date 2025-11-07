@@ -3,6 +3,7 @@ import { Auth } from '../../core/services/auth/auth';
 import { User } from '../../core/models/user';
 import { Observable, of } from 'rxjs';
 import { ModalProfile } from './components/modal-profile/modal-profile';
+import { ModalProject } from './components/modal-project/modal-project';
 
 @Component({
   selector: 'app-profile',
@@ -12,6 +13,7 @@ import { ModalProfile } from './components/modal-profile/modal-profile';
 })
 export class Profile {
   @ViewChild(ModalProfile) modalProfile!: ModalProfile;
+  @ViewChild(ModalProject) modalProject!: ModalProject;
   
   currentUser$: Observable<User | null>;
 
@@ -31,8 +33,19 @@ export class Profile {
     }
   }
 
+  openProjectModal() {
+    if (this.modalProject) {
+      this.modalProject.openModal();
+    }
+  }
+
   onProfileUpdated(updatedProfile: User) {
     this.currentUser$ = of(updatedProfile);
     this.profileUpdated.emit(updatedProfile);
+  }
+
+  onProjectAdded(updatedUser: User) {
+    this.currentUser$ = of(updatedUser);
+    this.profileUpdated.emit(updatedUser);
   }
 }
