@@ -1,22 +1,97 @@
 <div class="register-container">
   <h2>SocialDev</h2>
-  <form class="register-form">
-    <h1>Crea tu cuenta</h1>
-    <app-input type="text" id="username" name="username" [required]="true" placeholder="Nombre de usuario">
-    </app-input>
 
-    <app-input type="email" id="email" name="email" [required]="true" placeholder="Correo electrónico">
-    </app-input>
+  <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div>
+      <h1>Crea tu cuenta</h1>
+      <p>Únete a la comunidad de desarrolladores</p>
+    </div>
 
-    <app-input type="password" id="password" name="password" [required]="true" placeholder="Contraseña">
-    </app-input>
+    <!-- Mensaje de éxito -->
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
 
-    <app-input type="password" id="confirmPassword" name="confirmPassword" [required]="true"
-      placeholder="Confirmar contraseña">
-    </app-input>
+    <!-- Mensaje de error -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
 
-    <app-button type="submit" [label]="'Registrarse'"></app-button>
+    <div class="form-group">
+      <app-input
+        type="text"
+        id="name"
+        name="name"
+        [required]="true"
+        placeholder="Nombre completo"
+        formControlName="name"
+        (valueChange)="registerForm.get('name')?.setValue($event)"
+      ></app-input>
+      <div *ngIf="f['name'].invalid && f['name'].touched" class="error">
+        <span *ngIf="f['name'].errors?.['required']">El nombre es requerido</span>
+        <span *ngIf="f['name'].errors?.['minlength']">El nombre debe tener al menos 3 caracteres</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <app-input
+        type="email"
+        id="email"
+        name="email"
+        [required]="true"
+        placeholder="Correo electrónico"
+        formControlName="email"
+        (valueChange)="registerForm.get('email')?.setValue($event)"
+      ></app-input>
+      <div *ngIf="f['email'].invalid && f['email'].touched" class="error">
+        <span *ngIf="f['email'].errors?.['required']">El correo es requerido</span>
+        <span *ngIf="f['email'].errors?.['email']">Correo electrónico inválido</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <app-input
+        type="password"
+        id="password"
+        name="password"
+        [required]="true"
+        placeholder="Contraseña"
+        formControlName="password"
+        (valueChange)="registerForm.get('password')?.setValue($event)"
+      ></app-input>
+      <div *ngIf="f['password'].invalid && f['password'].touched" class="error">
+        <span *ngIf="f['password'].errors?.['required']">La contraseña es requerida</span>
+        <span *ngIf="f['password'].errors?.['minlength']">La contraseña debe tener al menos 6 caracteres</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <app-input
+        type="password"
+        id="confirmPassword"
+        name="confirmPassword"
+        [required]="true"
+        placeholder="Confirmar contraseña"
+        formControlName="confirmPassword"
+        (valueChange)="registerForm.get('confirmPassword')?.setValue($event)"
+      ></app-input>
+      <div *ngIf="f['confirmPassword'].invalid && f['confirmPassword'].touched" class="error">
+        <span *ngIf="f['confirmPassword'].errors?.['required']">Debes confirmar la contraseña</span>
+      </div>
+      <div *ngIf="registerForm.errors?.['passwordMismatch'] && f['confirmPassword'].touched" class="error">
+        Las contraseñas no coinciden
+      </div>
+    </div>
+
+    <app-button
+      type="submit"
+      [label]="'Registrarse'"
+      [disabled]="registerForm.invalid"
+    ></app-button>
   </form>
 
-  <p>¿Ya tienes una cuenta? <a href="/login">Inicia sesión aquí</a>.</p>
+  <div class="login-link">
+    <p>¿Ya tienes una cuenta?</p>
+    <a routerLink="/login">Inicia sesión aquí</a>
+  </div>
 </div>

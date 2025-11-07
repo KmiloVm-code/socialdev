@@ -20,6 +20,17 @@ export class Auth {
     this.verifySession().subscribe();
   }
 
+  register(name: string, email: string, password: string, withCredentials = true): Observable<any> {
+    return this.apiService
+      .post<any>('/auth/register', { name, email, password }, withCredentials)
+      .pipe(
+        tap((response) => {
+          // El registro no inicia sesión automáticamente según el backend
+          this.sessionChecked.next(true);
+        })
+      );
+  }
+
   login(email: string, password: string, withCredentials = true): Observable<AuthModel> {
     return this.apiService
       .post<AuthModel>('/auth/login', { email, password }, withCredentials)
