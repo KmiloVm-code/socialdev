@@ -24,7 +24,7 @@ export class ModalProfile {
       email: [{value: this.profile.email, disabled: true}, [Validators.required, Validators.email]],
       profession: [this.profile.profession, Validators.required],
       bio: [this.profile.bio, Validators.required],
-      skills: [this.profile.skills, Validators.required],
+      skills: [this.profile.skills?.join(', ') || '', Validators.required],
     });
   }
 
