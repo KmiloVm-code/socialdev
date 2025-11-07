@@ -7,6 +7,9 @@
     </p>
   </div>
   <picture class="project-image">
-    <img [src]="project?.image" [alt]="project?.title">
+    <img 
+      [src]="projectImageUrl" 
+      [alt]="project?.title"
+      (error)="onProjectImageError($event)">
   </picture>
 </article>

@@ -1,8 +1,9 @@
 <div class="chat-item">
   <div class="chat-item-avatar">
     <img
-      src="https://static.vecteezy.com/system/resources/thumbnails/027/951/137/small_2x/stylish-spectacles-guy-3d-avatar-character-illustrations-png.png"
-      alt="avatar">
+      [src]="avatarUrl"
+      alt="avatar"
+      (error)="onAvatarError($event)">
   </div>
   <div class="chat-item-details">
     <span class="chat-item-header">

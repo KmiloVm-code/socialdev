@@ -2,8 +2,9 @@
   <header class="post-card__header">
     <div class="post-card__header-avatar">
       <img
-        [src]="getAuthorAvatar()"
-        [alt]="getAuthorName()">
+        [src]="avatarUrl"
+        [alt]="getAuthorName()"
+        (error)="onAvatarError($event)">
     </div>
     <div class="post-card__header-info">
       <h2>{{ getAuthorName() }}</h2>
@@ -14,7 +15,12 @@
   <div class="post-card__content">
     <h3 *ngIf="post.title">{{ post.title }}</h3>
     <p>{{ post.content }}</p>
-    <img *ngIf="post.image" [src]="post.image.url" alt="{{ post.image.filename }}" class="post-card__image">
+    <img 
+      *ngIf="post.image" 
+      [src]="postImageUrl" 
+      alt="{{ post.image.filename }}" 
+      class="post-card__image"
+      (error)="onPostImageError($event)">
   </div>
   <footer class="post-card__footer">
     <div class="post-card__footer-like" (click)="onLike()" [class.liked]="isLikedByCurrentUser()">
