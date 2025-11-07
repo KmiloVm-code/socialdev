@@ -6,7 +6,7 @@
     <h2 id="user-name">{{user?.name}}</h2>
     <p role="text">{{user?.profession}}</p>
 
-    <app-button [label]="'Editar Perfil'"></app-button>
+    <app-button [label]="'Editar Perfil'" (click)="onEditProfile()"></app-button>
   </div>
 
   <p class="user-bio">

@@ -21,3 +21,7 @@
     filter: invert(80%);
   }
 }
+
+.skills-input-field {
+  background-color: var(--background-tertiary-color);
+}

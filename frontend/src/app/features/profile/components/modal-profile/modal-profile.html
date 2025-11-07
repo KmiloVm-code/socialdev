@@ -1,0 +1,52 @@
+<dialog #modalProfile class="modal-profile">
+  <h2>Edit Profile</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="profileForm" autocomplete="off" class="profile-form">
+    <figure class="avatar-preview">
+      <img [src]="profile.avatar" alt="Avatar de {{profile.name}}" />
+      <figcaption>{{profile.name}}</figcaption>
+    </figure>
+    <label for="name">Nombre:</label>
+    <app-input
+      type="text"
+      formControlName="name"
+      [required]="true"
+    ></app-input>
+
+    <label for="email">Email:</label>
+    <app-input
+      type="email"
+      formControlName="email"
+      [required]="true"
+    ></app-input>
+
+    <label for="profession">Profesión:</label>
+    <app-input
+      type="text"
+      formControlName="profession"
+      [required]="true"
+    ></app-input>
+
+    <label for="bio">Biografía:</label>
+    <textarea
+      formControlName="bio"
+      [required]="true"
+    ></textarea>
+
+    <label for="skills">Habilidades:</label>
+    <div class="skills-input">
+      <ul class="skills-list">
+        <li *ngFor="let skill of profile.skills">{{ skill }}</li>
+      </ul>
+      <app-input
+        type="text"
+        formControlName="skills"
+        placeholder="Añadir habilidad (separadas por comas)"
+        [required]="true"
+        [customClass]="'skills-input-field'"
+      ></app-input>
+    </div>
+
+    <app-button type="submit" [disabled]="!profileForm.valid" label="Guardar"></app-button>
+    <app-button type="button" (click)="closeModal()" label="Cancelar"></app-button>
+  </form>
+</dialog>

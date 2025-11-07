@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Auth } from '../../core/services/auth/auth';
 import { User } from '../../core/models/user';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { ModalProfile } from './components/modal-profile/modal-profile';
 
 @Component({
   selector: 'app-profile',
@@ -10,9 +11,28 @@ import { Observable } from 'rxjs';
   styleUrl: './profile.css',
 })
 export class Profile {
+  @ViewChild(ModalProfile) modalProfile!: ModalProfile;
+  
   currentUser$: Observable<User | null>;
 
   constructor(private auth: Auth) {
     this.currentUser$ = this.auth.currentUser$;
+  }
+
+  @Output() profileUpdated = new EventEmitter<User>();
+
+  ngAfterViewInit() {
+    // You can perform any additional initialization here if needed
+  }
+
+  openEditModal() {
+    if (this.modalProfile) {
+      this.modalProfile.openModal();
+    }
+  }
+
+  onProfileUpdated(updatedProfile: User) {
+    this.currentUser$ = of(updatedProfile);
+    this.profileUpdated.emit(updatedProfile);
   }
 }

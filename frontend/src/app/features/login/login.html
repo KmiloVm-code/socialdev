@@ -13,7 +13,7 @@
         name="email"
         [required]="true"
         placeholder="correo electrónico"
-        [value]="loginForm.get('email')?.value"
+        formControlName="email"
         (valueChange)="loginForm.get('email')?.setValue($event)"
       ></app-input>
       <div *ngIf="f['email'].invalid && f['email'].touched" class="error">
@@ -28,7 +28,7 @@
         name="password"
         [required]="true"
         placeholder="contraseña"
-        [value]="loginForm.get('password')?.value"
+        formControlName="password"
         (valueChange)="loginForm.get('password')?.setValue($event)"
       ></app-input>
       <div *ngIf="f['password'].invalid && f['password'].touched" class="error">

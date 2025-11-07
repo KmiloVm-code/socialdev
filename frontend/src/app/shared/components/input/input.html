@@ -5,6 +5,8 @@
   [required]="required" 
   [placeholder]="placeholder" 
   [value]="value"
-  [class]="inputClass"
+  [class]="inputClasses"
+  [disabled]="disabled"
   (input)="onInputChange($event)"
+  (blur)="onTouched()"
 />
