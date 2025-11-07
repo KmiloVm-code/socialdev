@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://socialdev-sepia.vercel.app/api',
+  apiBaseUrl: 'https://socialdev-api.vercel.app/api',
 };
