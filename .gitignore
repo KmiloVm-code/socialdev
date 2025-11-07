@@ -12,11 +12,6 @@ pnpm-debug.log*
 .env.test.local
 .env.production.local
 
-# Angular environment files
-frontend/src/environments/
-environment.ts
-environment.*.ts
-
 # Logs
 logs
 *.log
