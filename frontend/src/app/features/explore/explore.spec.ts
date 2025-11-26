@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 import { Explore } from './explore';
 
@@ -8,9 +10,10 @@ describe('Explore', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [Explore]
-    })
-    .compileComponents();
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+
+      declarations: [Explore],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Explore);
     component = fixture.componentInstance;

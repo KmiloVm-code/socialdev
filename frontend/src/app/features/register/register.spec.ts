@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { Register } from './register';
 
@@ -8,9 +11,10 @@ describe('Register', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [Register]
-    })
-    .compileComponents();
+      declarations: [Register],
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+      schemas: [NO_ERRORS_SCHEMA],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Register);
     component = fixture.componentInstance;

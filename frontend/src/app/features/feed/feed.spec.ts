@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 import { Feed } from './feed';
 
@@ -8,9 +10,10 @@ describe('Feed', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [Feed]
-    })
-    .compileComponents();
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+
+      declarations: [Feed],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Feed);
     component = fixture.componentInstance;
